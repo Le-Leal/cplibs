@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include <bits/stdc++.h>
-#include "../library/structure/segmentTree.hpp"
+#include "../structure/segmentTree.hpp"
 using namespace std;
 #define rep(i,n) for(ll i=0;i<n;i++)
 

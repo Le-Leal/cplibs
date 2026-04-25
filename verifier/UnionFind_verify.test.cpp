@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 #include <bits/stdc++.h>
-#include "../library/structure/UnionFind.hpp"
+#include "../structure/UnionFind.hpp"
 using namespace std;
 
 int main() {
