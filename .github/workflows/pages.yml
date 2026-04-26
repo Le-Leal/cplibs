@@ -27,6 +27,16 @@ jobs:
       - name: Generate docs
         run: oj-verify docs
 
+      - name: Normalize icons
+        run: |
+          find .verify-helper/markdown \( -name '*.md' -o -name '*.html' \) | while read f; do
+            sed -i \
+              -e "s/:heavy_check_mark:/✅/g" \
+              -e "s/:x:/❌/g" \
+              -e "s/:warning:/⚠️/g" \
+              "$f"
+          done
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
