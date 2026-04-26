@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   verify:
@@ -12,10 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: online-judge-tools/verification-helper@v5
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .verify-helper/markdown
+          python-version: "3.11"
+
+      - name: Install oj-verify
+        run: pip install online-judge-verify-helper
+
+      - name: Run verification
+        run: oj-verify all
