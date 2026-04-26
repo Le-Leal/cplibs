@@ -27,13 +27,13 @@ jobs:
       - name: Generate docs
         run: oj-verify docs
 
-      - name: Normalize icons
+      - name: Fix emoji rendering
         run: |
-          find .verify-helper/markdown \( -name '*.md' -o -name '*.html' \) | while read f; do
+          find .verify-helper/markdown -type f \( -name '*.html' -o -name '*.md' \) | while read f; do
             sed -i \
-              -e "s/:heavy_check_mark:/✅/g" \
-              -e "s/:x:/❌/g" \
-              -e "s/:warning:/⚠️/g" \
+              -e 's|<img class="emoji" title=":heavy_check_mark:" alt=":heavy_check_mark:"[^>]*>|✅|g' \
+              -e 's|<img class="emoji" title=":x:" alt=":x:"[^>]*>|❌|g' \
+              -e 's|<img class="emoji" title=":warning:" alt=":warning:"[^>]*>|⚠️|g' \
               "$f"
           done
 
