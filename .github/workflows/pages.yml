@@ -27,15 +27,12 @@ jobs:
       - name: Generate docs
         run: oj-verify docs
 
-      - name: Fix emoji rendering
+      - name: Inspect generated docs
         run: |
-          find .verify-helper/markdown -type f \( -name '*.html' -o -name '*.md' \) | while read f; do
-            sed -i \
-              -e 's|<img class="emoji"[^>]*title=":heavy_check_mark:"[^>]*>|✅|g' \
-              -e 's|<img class="emoji"[^>]*title=":x:"[^>]*>|❌|g' \
-              -e 's|<img class="emoji"[^>]*title=":warning:"[^>]*>|⚠️|g' \
-              "$f"
-          done
+          echo '--- grep _verificationStatusIcon ---'
+          grep -RIn "_verificationStatusIcon\|:heavy_check_mark:\|:x:" .verify-helper/markdown || true
+          echo '--- segmentTree page ---'
+          sed -n '1,80p' .verify-helper/markdown/structure/segmentTree.hpp.md
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
