@@ -11,7 +11,6 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  RAW: {{ page.data._verificationStatusIcon }}
   bundledCode: "#line 2 \"structure/segmentTree.hpp\"\n#include <bits/stdc++.h>\n\
     using namespace std;\nusing ll = long long;\n\n\ntemplate<typename t> class segtree\
     \ {\n    function<t(t,t)> op;\n    function<t()> e;\n    ll n;\n    vector<t>\
