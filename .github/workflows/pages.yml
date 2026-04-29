@@ -27,12 +27,12 @@ jobs:
       - name: Generate docs
         run: oj-verify docs
 
-      - name: Inspect generated docs
-        run: |
-          echo '--- grep _verificationStatusIcon ---'
-          grep -RIn "_verificationStatusIcon\|:heavy_check_mark:\|:x:" .verify-helper/markdown || true
-          echo '--- segmentTree page ---'
-          sed -n '1,80p' .verify-helper/markdown/structure/segmentTree.hpp.md
+      - name: Upload generated markdown
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-docs
+          path: .verify-helper/markdown
+  
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

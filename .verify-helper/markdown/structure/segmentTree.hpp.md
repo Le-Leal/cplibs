@@ -92,4 +92,3 @@ redirect_from:
 - /library/structure/segmentTree.hpp.html
 title: structure/segmentTree.hpp
 ---
-
