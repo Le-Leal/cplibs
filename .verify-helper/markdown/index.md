@@ -62,6 +62,9 @@ data:
       path: structure/removable_queue.hpp
       title: structure/removable_queue.hpp
     - icon: ':heavy_check_mark:'
+      path: structure/segmentTree.hpp
+      title: structure/segmentTree.hpp
+    - icon: ':heavy_check_mark:'
       path: structure/segmentTree_slow.hpp
       title: structure/segmentTree_slow.hpp
     - icon: ':warning:'
@@ -87,5 +90,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: verifier/segmentTree_slow_verify.test.cpp
       title: verifier/segmentTree_slow_verify.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verifier/segmentTree_verify.test.cpp
+      title: verifier/segmentTree_verify.test.cpp
 layout: toppage
 ---
