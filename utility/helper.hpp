@@ -61,6 +61,19 @@ ll modpowlarge(ll fl,string po,ll modulo) { // po がクソでかい用
     return res;
 }
 
+ll modcomb(ll n,ll r) { //r小に
+    if(n<r) return 0;
+    __int128_t res=1;
+    for(__int128_t i=1;i<=r;i++) {
+        res*=(n-i+1);
+        res%=mod;
+        res*=modinv((ll)i,mod);
+        res%=mod;
+    }
+    return res;
+}
+
+
 vector<ll> pfact(ll n) {
     vector<ll> resp;
     vector<bool> prefact(sqrtl(n)+10);
