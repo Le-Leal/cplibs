@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
+
 template <class T> void vecpr(T first,T last) {
     ll tmp=0;
     for(auto it=first;it!=last;++it) {
@@ -37,6 +38,9 @@ template<class T> T modpow(T fl, ll po, ll mode) {  // mode: 0=modなし, 1=mod�
     #undef MOD
     return ret;
 }
+inline long long modpow(int fl, ll po, ll mode) {
+    return modpow(static_cast<long long>(fl), po, mode);
+}
 
 ll modpow2(ll fl,ll po,ll modulo) { //ninni mod
     ll ret=1;
@@ -63,6 +67,7 @@ ll modpowlarge(ll fl,string po,ll modulo) { // po がクソでかい用
 
 ll modcomb(ll n,ll r) { //r小に
     if(n<r) return 0;
+    ll mod=998244353;
     __int128_t res=1;
     for(__int128_t i=1;i<=r;i++) {
         res*=(n-i+1);
@@ -70,7 +75,7 @@ ll modcomb(ll n,ll r) { //r小に
         res*=modinv((ll)i,mod);
         res%=mod;
     }
-    return res;
+    return res;  
 }
 
 
