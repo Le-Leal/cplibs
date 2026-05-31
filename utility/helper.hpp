@@ -15,17 +15,17 @@ template <class T> void vecpr(T first,T last) {
 }
 
 
-template<class T> T modpow(T fl, ll po, ll mode) {  // mode: 0=modなし, 1=modあり
+ll modpow(ll fl, ll po, ll mode) {  // mode: 0=modなし, 1=modあり
     #ifndef MOD
     #define MOD 998244353
     #endif
     assert(po>=0);
-    T ret(1);
+    ll ret(1);
     if (mode) {
-        fl%=T(MOD);
+        fl%=ll(MOD);
         while (po>0) {
-            if (po&1) ret=(ret*fl)%T(MOD);
-            fl=(fl*fl)%T(MOD);
+            if (po&1) ret=(ret*fl)%ll(MOD);
+            fl=(fl*fl)%ll(MOD);
             po>>=1;
         }
     } else {
@@ -37,9 +37,6 @@ template<class T> T modpow(T fl, ll po, ll mode) {  // mode: 0=modなし, 1=mod�
     }
     #undef MOD
     return ret;
-}
-inline long long modpow(int fl, ll po, ll mode) {
-    return modpow(static_cast<long long>(fl), po, mode);
 }
 
 ll modpow2(ll fl,ll po,ll modulo) { //ninni mod
