@@ -1,4 +1,4 @@
-## cplibs
+# cplibs
 Leal_alの競プロ向けライブラリーです。
 
 algorithm:今はLISしか入っていません(分類を迷ったものが入ります)
